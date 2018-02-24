@@ -3,10 +3,13 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.Scanner;
+
+// more tests
+
 /**
  * Write a description of class Collision here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
 public class Main extends JPanel implements ActionListener, KeyListener
@@ -15,19 +18,19 @@ public class Main extends JPanel implements ActionListener, KeyListener
     private static final double RUNNING = 5.6;//4.1m/s(0.656pix/5msec)
     private static final double GRAVITY = 1.6;//9.8m/s^2(1.568pix/5msec^2)
     private static final double TERMINAL_VELOCITY = 8.6;//54m/s(8.64pix/5msec)
-    
+
     private final int LEFT = 0;
     private final int RIGHT = 1;
     private final int UP = 2;
     private boolean[] keys = new boolean[3];
-    
+
     private int sunX;
     private double sunY;
     private int drawX;
     private int red = 0;
     private int green = 0;
     private int blue = 0;
-    
+
     private Player player = new Player(70, 80, 64, 64);
     //private Point player = new Point(54, 120);
     //private double xSpeed = 0;
@@ -51,7 +54,7 @@ public class Main extends JPanel implements ActionListener, KeyListener
         frame.setVisible(true);
         new Timer(5, this).start();
         frame.addKeyListener(this);
-        
+
         sunX = -(getWidth() / 2) - 32;
     }
 
@@ -64,7 +67,7 @@ public class Main extends JPanel implements ActionListener, KeyListener
         sunY = Math.pow(sunX / 32.0, 2);
         g.setColor(Color.YELLOW);
         g.fillOval(drawX, (int)sunY, 64, 64);
-        
+
         g.setColor(Color.RED);
         g.fillRect(getWidth() / 2, getHeight() / 2, 64, 64);
         for(int r = 0; r < map.length; r++)
@@ -80,7 +83,7 @@ public class Main extends JPanel implements ActionListener, KeyListener
         //g.drawString("Pressing Left? " + keys[LEFT], 20, 40);
         //g.drawString("y-speed: " + player.getYSpeed(), 20, 60);
         g.setColor(Color.YELLOW);
-        for(Tile tile : localTiles) 
+        for(Tile tile : localTiles)
         {
             if(tile != null)
             {
@@ -110,7 +113,7 @@ public class Main extends JPanel implements ActionListener, KeyListener
             xSpeed -= WALKING;
             if(Math.abs(xSpeed) > RUNNING) xSpeed = -RUNNING;
         }
-        if(keys[RIGHT]) 
+        if(keys[RIGHT])
         {
             player.x += xSpeed;
             xSpeed += WALKING;
@@ -165,10 +168,10 @@ public class Main extends JPanel implements ActionListener, KeyListener
                 player.setYSpeed(GRAVITY * -15);
             }
             /*
-            if(active && landed) 
+            if(active && landed)
             {
                 landed = false;
-                ySpeed = GRAVITY * -15; 
+                ySpeed = GRAVITY * -15;
             }*/
             break;
             default: if(active) System.out.println((char)code + ": " + code); break;
@@ -211,9 +214,9 @@ public class Main extends JPanel implements ActionListener, KeyListener
             }
         }
         /*
-        if(collision.width > collision.height) 
+        if(collision.width > collision.height)
         {
-            if(player.y < tile.getRow() * 64) 
+            if(player.y < tile.getRow() * 64)
             {
                 player.y -= collision.height;
                 landed = true;
@@ -222,11 +225,11 @@ public class Main extends JPanel implements ActionListener, KeyListener
         }
         else if(collision.width <= collision.height)
         {
-            if(player.x < tile.getColumn() * 64) 
+            if(player.x < tile.getColumn() * 64)
             {
                 player.x -= collision.width;
             }
-            else if(player.x > tile.getColumn() * 64) 
+            else if(player.x > tile.getColumn() * 64)
             {
                 player.x += collision.width;
             }
@@ -247,9 +250,9 @@ public class Main extends JPanel implements ActionListener, KeyListener
             localTiles[3] = map[player.getY() / 64 + 1][player.getX() / 64 + 1];
         return localTiles;
         /*
-        if(inMap(player.x, map[map.length - 1].length * 64) && inMap(player.y, map.length * 64)) 
+        if(inMap(player.x, map[map.length - 1].length * 64) && inMap(player.y, map.length * 64))
             localTiles[0] = map[player.y / 64][player.x / 64];
-        if(inMap(player.x + 64, map[map.length - 1].length * 64) && inMap(player.y, map.length * 64)) 
+        if(inMap(player.x + 64, map[map.length - 1].length * 64) && inMap(player.y, map.length * 64))
             localTiles[1] = map[player.y / 64][player.x / 64 + 1];
         if(inMap(player.x, map[map.length - 1].length * 64) && inMap(player.y + 64, map.length * 64))
             localTiles[2] = map[player.y / 64 + 1][player.x / 64];
@@ -284,6 +287,8 @@ public class Main extends JPanel implements ActionListener, KeyListener
             }
         }
     }
+
+// even more
 
     private void printMap()
     {
