@@ -17,8 +17,8 @@ import java.util.Scanner;
  */
 public class Main extends JPanel implements ActionListener, KeyListener
 {
-    private static final double WALKING = 0.8;//1.4m/s(0.224pix/5msec)
-    private static final double RUNNING = 5.6;//4.1m/s(0.656pix/5msec)
+    private static final double WALKING = 0.5;//1.4m/s(0.224pix/5msec)
+    private static final double RUNNING = 7.6;//4.1m/s(0.656pix/5msec)
     private static final double GRAVITY = 1.6;//9.8m/s^2(1.568pix/5msec^2)
     private static final double TERMINAL_VELOCITY = 8.6;//54m/s(8.64pix/5msec)
 
